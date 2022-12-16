@@ -8,33 +8,22 @@
     let squareRoot = document.querySelector(".btn-squareRoot");
     let square = document.querySelector(".btn-square");
     let operationDone = false; 
-    let operationsManager;
 
     buttons.forEach(function(button){
         button.addEventListener("click", function(event){
             let value = event.target.dataset.num;
-            if(operationDone){
-                screen.value = "";
-                operationDone = false;
-            }
             screen.value += value;
         })
     });
 
     equal.addEventListener("click", function() {
-        if(screen.value === ''){
-            screen.value = "";
-        } else{
             let answer = eval(screen.value);
             screen.value = answer;
             operationDone = true; 
-        }
     })
 
     clear.addEventListener('click', function(){
         screen.value = "";
-
-
     })
 
     delfunct.addEventListener('click', function() {
@@ -56,11 +45,9 @@
 
     })
 
+
     document.addEventListener("keydown", function (event) {
-        if(operationDone){
-            screen.value = "";
-            operationDone = false;
-        }
+     
         switch (event.key) {
             
             case "1":
@@ -138,15 +125,4 @@
                 break;
         }
     });
-
-    operationsManager = (operation)=> {
-        switch (operation) {
-            case operation > 1 :
-
-                break;
-        
-            default:
-                break;
-        }
-    }
 })();

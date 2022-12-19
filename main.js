@@ -111,7 +111,7 @@
                 break;
             case "Enter":
                 debugger;
-                if (answer == "Infinity"){
+                if (screen.value == "Infinity"){
                     return screen.value = "Error!"
                 }
                 if(screen.value === ''){

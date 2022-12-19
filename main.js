@@ -50,10 +50,7 @@
     })
 
 
-    document.addEventListener("keydown", function (event) {
-        let check = eval(screen.value);
-
-     
+    document.addEventListener("keydown", function (event) {   
         switch (event.key) {
             
             case "1":
@@ -112,13 +109,14 @@
                 }
                 break;
             case "Enter":
-                if (check == "Infinity"){
+                let answer = eval(screen.value);
+
+                if (answer == "Infinity"){
                     return screen.value = "Error! x/0"
                 }
                 if(screen.value === ''){
                         screen.value = "";
                    } else{
-                        let answer = eval(screen.value);
                         screen.value = answer;
                         operationDone = true; 
                     }

@@ -9,24 +9,42 @@
     let square = document.querySelector(".btn-square");
     let operationDone = false; 
 
+    // buttons.forEach(function(button){
+    //     button.addEventListener("click", function(event){
+    //         let value = event.target.dataset.num;
+    //         if(screen.value.includes(".") && value == "."){return};
+    //         screen.value += value;
+    //     })
+    // });
+
     buttons.forEach(function(button){
         button.addEventListener("click", function(event){
             let value = event.target.dataset.num;
-            if(value == "+" || value == "-" || value == "*" || value == "/" || value == "^"){
-                let splitString = screen.value.split(value);
-                splitString.forEach(function(split){
-                  let splitOnDecimal = split.split(".");
-                  if(splitOnDecimal.length > 2){
-                    return;
-                  }
-                });
-              }
-            if(screen.value.includes(".") && value == "."){return};
-            screen.value += value;
-        })
+     
+            // check if value is a decimal point
+            if (value === '.') {
+                // check if screen value already contains a decimal point
+                if (screen.value.indexOf('.') === -1) {
+                    // if not, append the decimal point to the screen value
+                    screen.value += value;
+                }
+            } else {
+                // check if value is one of the specified operators
+                let operators = ['+', '-', '/', '*', '^'];
+                if (operators.indexOf(value) !== -1) {
+                    // if it is an operator, split the screen value at the operator
+                    let values = screen.value.split(value);
+                    // operate on the values and store the result
+                    let result = eval(values[0] + value + values[1]);
+                    // update the screen value with the result
+                    screen.value = result;
+                } else {
+                    // if it is not an operator or a decimal point, just append the value to the screen value
+                    screen.value += value;
+                }
+            }
+        });
     });
-
-      
 
     equal.addEventListener("click", function() {
             let answer = eval(screen.value);

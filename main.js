@@ -13,8 +13,8 @@
         button.addEventListener("click", function(event){
             let value = event.target.dataset.num;
             screen.value += value;
-            if(!screen.value.includes(".")){
-                screen.value += "."
+            if(screen.value.includes(".")){
+                screen.value -= "."
                 }
         })
     });

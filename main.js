@@ -8,6 +8,12 @@
     let squareRoot = document.querySelector(".btn-squareRoot");
     let square = document.querySelector(".btn-square");
     let operationDone = false; 
+    let divisionByZero = false;
+
+    divisionByZero = (screen) =>{
+        
+        screen.some()
+    }
 
     buttons.forEach(function(button){
         button.addEventListener("click", function(event){
@@ -18,6 +24,9 @@
 
     equal.addEventListener("click", function() {
             let answer = eval(screen.value);
+            if (answer == "infinity"){
+                return screen.value = "Error!"
+            }
             screen.value = answer;
             operationDone = true; 
     })

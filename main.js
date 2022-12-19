@@ -20,7 +20,7 @@
     equal.addEventListener("click", function() {
             let answer = eval(screen.value);
             if (answer == "Infinity"){
-                return screen.value = "Error! no divisible por 0"
+                return screen.value = "Error! x/0"
             }
             screen.value = answer;
             operationDone = true; 
@@ -51,7 +51,7 @@
 
 
     document.addEventListener("keydown", function (event) {
-        let answer = eval(screen.value);
+        let check = eval(screen.value);
 
      
         switch (event.key) {
@@ -112,8 +112,8 @@
                 }
                 break;
             case "Enter":
-                if (answer == "Infinity"){
-                    return screen.value = "Error! no divisible por 0"
+                if (check == "Infinity"){
+                    return screen.value = "Error! x/0"
                 }
                 if(screen.value === ''){
                         screen.value = "";

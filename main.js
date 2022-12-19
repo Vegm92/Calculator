@@ -12,10 +12,8 @@
     buttons.forEach(function(button){
         button.addEventListener("click", function(event){
             let value = event.target.dataset.num;
+            if(screen.value.includes(".") && value == "."){return};
             screen.value += value;
-            if(screen.value.includes(".")){
-                screen.value -= "."
-                }
         })
     });
 
@@ -112,6 +110,9 @@
                 }
                 break;
             case "Enter":
+                if (answer == "Infinity"){
+                    return screen.value = "Error!"
+                }
                     if(screen.value === ''){
                         screen.value = "";
                     } else{

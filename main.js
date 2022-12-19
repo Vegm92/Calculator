@@ -51,6 +51,8 @@
 
 
     document.addEventListener("keydown", function (event) {
+        let answer = eval(screen.value);
+
      
         switch (event.key) {
             
@@ -110,7 +112,7 @@
                 }
                 break;
             case "Enter":
-                if (screen.value == "Infinity"){
+                if (answer == "Infinity"){
                     return screen.value = "Error! no divisible por 0"
                 }
                 if(screen.value === ''){

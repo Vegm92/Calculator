@@ -9,14 +9,39 @@
     let square = document.querySelector(".btn-square");
     let operationDone = false; 
 
+    // buttons.forEach(function(button){
+    //     button.addEventListener("click", function(event){
+    //         let value = event.target.dataset.num;
+    //         if(screen.value.includes(".") && value == "."){return};
+    //         screen.value += value;
+    //     })
+    // });
+
     buttons.forEach(function(button){
         button.addEventListener("click", function(event){
-            let value = event.target.dataset.num;
-            if(screen.value.includes(".") && value == "."){return};
-            screen.value += value;
+          let value = event.target.dataset.num;
+          if(value == "+" || value == "-" || value == "*" || value == "/" || value == "^"){
+            let splitString = screen.value.split(value);
+            splitString.forEach(function(split){
+              let splitOnDecimal = split.split(".");
+              if(splitOnDecimal.length > 2){
+                return;
+              }
+            });
+          }
+          else if(value == "."){
+            let splitString = screen.value.split(/[+-/*^]/);
+            splitString.forEach(function(split){
+              let splitOnDecimal = split.split(".");
+              if(splitOnDecimal.length > 2){
+                return;
+              }
+            });
+          }
+          screen.value += value;
         })
-    });
-
+      });
+      
     equal.addEventListener("click", function() {
             let answer = eval(screen.value);
             if (answer == "Infinity"){

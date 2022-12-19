@@ -110,7 +110,6 @@
                 }
                 break;
             case "Enter":
-                debugger;
                 if (screen.value == "Infinity"){
                     return screen.value = "Error! no divisible por 0"
                 }

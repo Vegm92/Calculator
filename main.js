@@ -110,17 +110,17 @@
                 }
                 break;
             case "Enter":
+                debugger;
                 if (answer == "Infinity"){
                     return screen.value = "Error!"
                 }
-                    if(screen.value === ''){
+                if(screen.value === ''){
                         screen.value = "";
-                    } else{
+                   } else{
                         let answer = eval(screen.value);
                         screen.value = answer;
                         operationDone = true; 
                     }
-                
                 break;
             case "Backspace":
                 screen.value = screen.value.slice(0, -1)

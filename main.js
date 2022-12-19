@@ -20,7 +20,7 @@
     equal.addEventListener("click", function() {
             let answer = eval(screen.value);
             if (answer == "Infinity"){
-                return screen.value = "Error!"
+                return screen.value = "Error! no divisible por 0"
             }
             screen.value = answer;
             operationDone = true; 
@@ -112,7 +112,7 @@
             case "Enter":
                 debugger;
                 if (screen.value == "Infinity"){
-                    return screen.value = "Error!"
+                    return screen.value = "Error! no divisible por 0"
                 }
                 if(screen.value === ''){
                         screen.value = "";

@@ -9,8 +9,8 @@
   let decimalCounter = 0;
   let operators = ["+", "-", "/", "*", "^"];
 
-  buttons.forEach(function (button) {
-    button.addEventListener("click", function (event) {
+  buttons.forEach((button) => {
+    button.addEventListener("click", (event) => {
       let value = event.target.dataset.num;
       if (operators.includes(value)) {
         decimalCounter = 0;
@@ -34,7 +34,7 @@
     });
   });
 
-  equal.addEventListener("click", function () {
+  equal.addEventListener("click", () => {
     let answer = eval(screen.value);
     if (answer == "Infinity") {
       return (screen.value = "Error! x/0");
@@ -43,28 +43,28 @@
     operationDone = true;
   });
 
-  clear.addEventListener("click", function () {
+  clear.addEventListener("click", () => {
     screen.value = "";
   });
 
-  delfunct.addEventListener("click", function () {
+  delfunct.addEventListener("click", () => {
     let valueToDelete = screen.value.slice(0, -1);
     screen.value = valueToDelete;
   });
 
-  squareRoot.addEventListener("click", function () {
+  squareRoot.addEventListener("click", () => {
     let value = Math.sqrt(screen.value);
     screen.value = value;
     operationDone = true;
   });
 
-  square.addEventListener("click", function () {
+  square.addEventListener("click", () => {
     let value = screen.value * screen.value;
     screen.value = value;
     operationDone = true;
   });
 
-  document.addEventListener("keydown", function (event) {
+  document.addEventListener("keydown", (event) => {
     let valueKeyDown = event.key;
     if (operators.includes(valueKeyDown)) {
       decimalCounter = 0;
